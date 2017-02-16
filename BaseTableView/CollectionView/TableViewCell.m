@@ -23,7 +23,7 @@
     return self;
 }
 
--(CGFloat)modelCellOrHeight:(id)cellModel{
+-(CGFloat)modelCellOrHeight:(id)cellModel cellIndex:(NSIndexPath *)indexPath{
     self.btnss.frame =CGRectMake(100, 0, 100, 40);
     [self.btnss setTitle:cellModel forState:UIControlStateNormal];
     return 100;

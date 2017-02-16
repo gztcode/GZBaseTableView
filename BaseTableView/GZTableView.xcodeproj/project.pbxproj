@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D75B3E51E553C1E00D65A29 /* GZTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D75B3E31E553C1E00D65A29 /* GZTableViewCell.m */; };
+		6D75B3E61E553C1E00D65A29 /* GZTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D75B3E41E553C1E00D65A29 /* GZTableViewCell.xib */; };
 		6DBF8EFA1DFF959B00B8836C /* UIViewController+GZAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBF8EF91DFF959B00B8836C /* UIViewController+GZAdd.m */; };
 		6DD74E5B1DFA8D9C000472DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DD74E5A1DFA8D9C000472DE /* main.m */; };
 		6DD74E5E1DFA8D9C000472DE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DD74E5D1DFA8D9C000472DE /* AppDelegate.m */; };
@@ -20,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D75B3E21E553C1E00D65A29 /* GZTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZTableViewCell.h; sourceTree = "<group>"; };
+		6D75B3E31E553C1E00D65A29 /* GZTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZTableViewCell.m; sourceTree = "<group>"; };
+		6D75B3E41E553C1E00D65A29 /* GZTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZTableViewCell.xib; sourceTree = "<group>"; };
 		6DBF8EF81DFF959B00B8836C /* UIViewController+GZAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+GZAdd.h"; sourceTree = "<group>"; };
 		6DBF8EF91DFF959B00B8836C /* UIViewController+GZAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+GZAdd.m"; sourceTree = "<group>"; };
 		6DD74E561DFA8D9C000472DE /* CollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +83,9 @@
 				6DEE3DC81DFE31C8007E6A08 /* WBViewController.m */,
 				6DE2BF0D1DFE9283007A44DB /* TableViewCell.h */,
 				6DE2BF0E1DFE9283007A44DB /* TableViewCell.m */,
+				6D75B3E21E553C1E00D65A29 /* GZTableViewCell.h */,
+				6D75B3E31E553C1E00D65A29 /* GZTableViewCell.m */,
+				6D75B3E41E553C1E00D65A29 /* GZTableViewCell.xib */,
 				6DF2541B1DFF86EE0043AB35 /* BaseTableViewController */,
 				6DE2BF0C1DFE9267007A44DB /* KMC */,
 				6DD74E621DFA8D9C000472DE /* Main.storyboard */,
@@ -174,6 +182,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D75B3E61E553C1E00D65A29 /* GZTableViewCell.xib in Resources */,
 				6DD74E691DFA8D9C000472DE /* LaunchScreen.storyboard in Resources */,
 				6DD74E661DFA8D9C000472DE /* Assets.xcassets in Resources */,
 				6DD74E641DFA8D9C000472DE /* Main.storyboard in Resources */,
@@ -187,6 +196,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D75B3E51E553C1E00D65A29 /* GZTableViewCell.m in Sources */,
 				6DE2BF0F1DFE9283007A44DB /* TableViewCell.m in Sources */,
 				6DD74E611DFA8D9C000472DE /* ViewController.m in Sources */,
 				6DBF8EFA1DFF959B00B8836C /* UIViewController+GZAdd.m in Sources */,

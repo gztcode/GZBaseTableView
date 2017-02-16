@@ -9,6 +9,8 @@
 #import "WBViewController.h"
 #import "TableViewCell.h"
 #import "KMCGeigerCounter.h"
+#import "GZTableViewCell.h"
+
 @interface WBViewController ()
 {
     NSMutableArray * arr;
@@ -53,7 +55,7 @@
     
     NSDictionary * dic =@{array2:CELLSTR(TableViewCell)};
     
-    array =@[CELLSTR(TableViewCell),CELLSTR(UITableViewCell),CELLSTR(TableViewCell)];
+    array =@[CELLSTR(TableViewCell),CELLSTR(GZTableViewCell),CELLSTR(TableViewCell)];
     
 //    [self addTableView:self.view.bounds dicCellModel:dic];
     [self addTableView:self.view.bounds multipleCellOnModel:@{arr:array}];

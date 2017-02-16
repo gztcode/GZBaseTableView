@@ -11,7 +11,7 @@
 
 @implementation UITableViewCell (GZAdd)
 
--(CGFloat)modelCellOrHeight:(id)cellModel{
+-(CGFloat)modelCellOrHeight:(id)cellModel cellIndex:(NSIndexPath *)indexPath{
     return 0;
 }
 
@@ -65,9 +65,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.tableView.frame = frame;
-        __weak typeof(self) weakSelf = self;
+        WeakSelf;
         [dic enumerateKeysAndObjectsUsingBlock:^(NSArray * keyCellName, NSString * obj, BOOL * _Nonnull stop) {
-            [weakSelf.tableView registerClass:NSClassFromString(obj) forCellReuseIdentifier:obj];
+            [self whetherClassHave:obj];
             [keyCellName enumerateObjectsUsingBlock:^(id  _Nonnull model, NSUInteger idx, BOOL * _Nonnull stop) {
                 [weakSelf.modelArray addObject:model];
                 [weakSelf.cellNameArray addObject:obj];
@@ -81,10 +81,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.tableView.frame = frame;
-        __weak typeof(self) weakSelf = self;
+        WeakSelf;
         [model.firstObject enumerateObjectsUsingBlock:^(NSArray * objarray, NSUInteger idxmodel, BOOL * _Nonnull stop) {
-            NSString * cellName = cell.firstObject[idxmodel];
-            [weakSelf.tableView registerClass:NSClassFromString(cellName) forCellReuseIdentifier:cellName];
+            [self whetherClassHave:cell.firstObject[idxmodel]];
             [objarray enumerateObjectsUsingBlock:^(NSObject * obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 [weakSelf.modelArray addObject:obj];
                 [weakSelf.cellNameArray addObject:cell.firstObject[idxmodel]];
@@ -92,6 +91,24 @@
         }];
     }
     return self;
+}
+- (void)whetherClassHave:(NSString *)className;
+{
+    WeakSelf;
+    unsigned int count;
+    Method *methods = class_copyMethodList(NSClassFromString(className), &count);
+    for (int i = 0; i < count; i++)
+    {
+        Method method = methods[i];
+        SEL selector = method_getName(method);
+        NSString *name = NSStringFromSelector(selector);
+        if ([name rangeOfString:@"Nib"].location != NSNotFound){
+            [weakSelf.tableView registerNib:[UINib nibWithNibName:className bundle:nil] forCellReuseIdentifier:className];
+            return;
+        }
+    }
+    [weakSelf.tableView registerClass:NSClassFromString(className) forCellReuseIdentifier:className];
+    
 }
 
 #pragma mark --TableViewDataSource
@@ -101,7 +118,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
      UITableViewCell * cell =[tableView dequeueReusableCellWithIdentifier:self.cellNameArray[indexPath.row] forIndexPath:indexPath];
-    _cellHeight =[cell modelCellOrHeight:self.modelArray[indexPath.row]];
+    _cellHeight =[cell modelCellOrHeight:self.modelArray[indexPath.row] cellIndex:indexPath];
     cell.delegate = [self viewController:self];
     return cell;
 }

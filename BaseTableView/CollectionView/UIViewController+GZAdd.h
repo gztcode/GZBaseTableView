@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #define CELLSTR(Cell) NSStringFromClass([Cell class])
-
+#define WeakSelf __weak typeof(self) weakSelf = self;
 @protocol UITableViewCellDelegate <NSObject>
 
 /**
@@ -30,7 +30,7 @@
  @param cellModel Model
  @return 高度
  */
--(CGFloat)modelCellOrHeight:(id)cellModel;
+-(CGFloat)modelCellOrHeight:(id)cellModel cellIndex:(NSIndexPath *)indexPath;
 
 @property (nonatomic, weak) id<UITableViewCellDelegate> delegate;
 
