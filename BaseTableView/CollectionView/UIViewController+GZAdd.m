@@ -204,7 +204,8 @@ GZTabeleView * _tableView;
        _tableView =[[GZTabeleView alloc] initWithFrame:rect multipleCell:dic.allValues multipleModel:dic.allKeys];
         self.view = _tableView;
         self.tableView = _tableView.tableView;
-
+    }else{
+        NSLog(@"请检查key<NSArray *>.count 是否等于 Value.count");
     }
 }
 
