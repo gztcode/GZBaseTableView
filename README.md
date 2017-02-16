@@ -8,23 +8,23 @@
 [self addTableView:self.view.bounds dicCellModel:@{@[model]:CELLSTR(UITableViewCell)}];
 ```
 这是一个自定义一个cell的TableView
-@{@[model]:CELLSTR(UITableViewCell)}\<br>
+@{@[model]:CELLSTR(UITableViewCell)}
 
 @[model] ->指的是存放数据的数组，数组的icon代表cell的个数
 
-CELLSTR(UITableViewCell) -> 自定义cell的类名
+CELLSTR(UITableViewCell) -> 自定义cell的类名(支持Nib)
 
 
 
 ```
-[self addTableView:self.view.bounds dicCellModel:@{@[model]:@[cellName]}];
+[self addTableView:self.view.bounds multipleCellOnModel:@{arr:array}];
 ```
 
 这是一个自定义多个cell的TableView
 
-@[model] -> 指存放数组(Model)的数组
+arr -> 指存放数组(Model)的数组
 
-@[cellName] -> 存放cell名字的数组
+array -> 存放cell名字的数组
 
 
 
