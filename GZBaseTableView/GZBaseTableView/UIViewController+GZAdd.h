@@ -11,7 +11,7 @@
 #define CELLSTR(Cell) NSStringFromClass([Cell class])
 #define WeakSelf __weak typeof(self) weakSelf = self;
 @protocol UITableViewCellDelegate <NSObject>
-
+@optional
 /**
  事件的代理方法
 
