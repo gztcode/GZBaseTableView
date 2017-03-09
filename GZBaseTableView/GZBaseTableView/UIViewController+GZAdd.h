@@ -1,15 +1,15 @@
 //
 //  UIViewController+GZAdd.h
-//  CollectionView
+//  Nav
 //
-//  Created by aten07 on 2016/12/13.
-//  Copyright © 2016年 aten07. All rights reserved.
+//  Created by aten07 on 2017/3/9.
+//  aten07
 //
 
 #import <UIKit/UIKit.h>
 
 #define CELLSTR(Cell) NSStringFromClass([Cell class])
-#define WeakSelf __weak typeof(self) weakSelf = self;
+
 @protocol UITableViewCellDelegate <NSObject>
 @optional
 /**
@@ -35,16 +35,11 @@
 @property (nonatomic, weak) id<UITableViewCellDelegate> delegate;
 
 @end
-@interface GZTabeleView : UIView<UITableViewDataSource,UITableViewDelegate,UITableViewCellDelegate>
-@property(nonatomic,strong,readonly) UITableView * tableView;
-@property(nonatomic,strong,readonly) NSMutableArray * cellNameArray;
-@property(nonatomic,strong,readonly) NSMutableArray * modelArray;
 
-@end
 
 @interface UIViewController (GZAdd)<UITableViewCellDelegate>
 
-@property (nonatomic, strong) GZTabeleView *gztableView;
+@property (nonatomic, strong) UITableView *gztableView;
 
 /**
  应用于单一的cell对Model__数据为Key，cell为Value
