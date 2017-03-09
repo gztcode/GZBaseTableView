@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "GZBaseTableView"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "一行代码实现创建tableView、方便、快捷"
 
   # This description is used to generate tags and improve search results.
