@@ -173,40 +173,40 @@
 
 @implementation UIViewController (GZAdd)
 
-GZTabeleView * _tableView;
+GZTabeleView * _tbeView;
 
 -(void)addTableView:(CGRect)rect dicCellModel:(NSDictionary *)dic{
     if (dic != nil) {
-       _tableView =[[GZTabeleView alloc] initWithFrame:rect dicCellModel:dic];
-        self.view = _tableView;
-        self.gztableView = _tableView.tableView;
+       _tbeView =[[GZTabeleView alloc] initWithFrame:rect dicCellModel:dic];
+        self.view = _tbeView;
+        self.gztableView = _tbeView.tableView;
     }
 }
 
 -(void)addTableView:(CGRect)rect multipleCellOnModel:(NSDictionary *)dic{
     if ([dic.allKeys[0]count] == [dic.allValues[0]count]) {
-       _tableView =[[GZTabeleView alloc] initWithFrame:rect multipleCell:dic.allValues multipleModel:dic.allKeys];
-        self.view = _tableView;
-        self.gztableView = _tableView.tableView;
+       _tbeView =[[GZTabeleView alloc] initWithFrame:rect multipleCell:dic.allValues multipleModel:dic.allKeys];
+        self.view = _tbeView;
+        self.gztableView = _tbeView.tableView;
 
     }
 }
 
 - (void)refreshHeaderModel:(NSDictionary *)dic{
     if (dic != nil) {
-        [_tableView refreshHeaderModel:dic];
+        [_tbeView refreshHeaderModel:dic];
     }
 }
 
 - (void)refreshHeaderMultipleModel:(NSDictionary *)dic{
      if ([dic.allKeys[0]count] == [dic.allValues[0]count]) {
-         [_tableView refreshHeaderMultipleModel:dic.allValues Model:dic.allKeys];
+         [_tbeView refreshHeaderMultipleModel:dic.allValues Model:dic.allKeys];
      }
 }
 
 -(void)refreshFooterModel:(NSDictionary *)dic{
     if (dic != nil) {
-        [_tableView refreshFooterModel:dic];
+        [_tbeView refreshFooterModel:dic];
     }
 }
 
