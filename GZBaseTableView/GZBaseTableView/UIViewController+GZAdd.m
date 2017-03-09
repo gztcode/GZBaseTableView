@@ -212,7 +212,7 @@ GZTabeleView * _tableView;
 
 
 -(void)setGztableView:(UITableView *)gztableView{
-    objc_setAssociatedObject(self, @selector(tableView), tableView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, @selector(gztableView), gztableView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 -(UITableView *)gztableView{
