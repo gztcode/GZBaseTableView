@@ -65,14 +65,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.tableView.frame = frame;
-        __weak typeof(self) weakSelf = self;
-        [dic enumerateKeysAndObjectsUsingBlock:^(NSArray * keyCellName, NSString * obj, BOOL * _Nonnull stop) {
-            [weakSelf.tableView registerClass:NSClassFromString(obj) forCellReuseIdentifier:obj];
-            [keyCellName enumerateObjectsUsingBlock:^(id  _Nonnull model, NSUInteger idx, BOOL * _Nonnull stop) {
-                [weakSelf.modelArray addObject:model];
-                [weakSelf.cellNameArray addObject:obj];
-            }];
-        }];
+        [self registeredOrModelmultipleCell:@[dic.allValues] multipleModel:@[dic.allKeys]];
     }
     return self;
 }
@@ -81,18 +74,28 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.tableView.frame = frame;
-        __weak typeof(self) weakSelf = self;
-        [model.firstObject enumerateObjectsUsingBlock:^(NSArray * objarray, NSUInteger idxmodel, BOOL * _Nonnull stop) {
-            NSString * cellName = cell.firstObject[idxmodel];
-            [weakSelf.tableView registerClass:NSClassFromString(cellName) forCellReuseIdentifier:cellName];
-            [objarray enumerateObjectsUsingBlock:^(NSObject * obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                [weakSelf.modelArray addObject:obj];
-                [weakSelf.cellNameArray addObject:cell.firstObject[idxmodel]];
-            }];
-        }];
+        [self registeredOrModelmultipleCell:cell multipleModel:model];
     }
     return self;
 }
+
+-(void)registeredOrModelmultipleCell:(NSArray *)cell multipleModel:(NSArray *)model{
+    __weak typeof(self) weakSelf = self;
+    [model.firstObject enumerateObjectsUsingBlock:^(NSArray * objarray, NSUInteger idxmodel, BOOL * _Nonnull stop) {
+        NSString * cellName = cell.firstObject[idxmodel];
+        if ([[NSBundle mainBundle] pathForResource:cellName ofType:@"nib"].length > 0) {
+             [weakSelf.tableView registerNib:[UINib nibWithNibName:cellName bundle:nil] forCellReuseIdentifier:cellName];
+        }else{
+             [weakSelf.tableView registerClass:NSClassFromString(cellName) forCellReuseIdentifier:cellName];
+        }
+        [objarray enumerateObjectsUsingBlock:^(NSObject * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [weakSelf.modelArray addObject:obj];
+            [weakSelf.cellNameArray addObject:cell.firstObject[idxmodel]];
+        }];
+    }];
+    
+}
+
 
 #pragma mark --TableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
